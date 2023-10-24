@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "lm-scorer"
+version = "0.4.2"
+description = "Language Model based sentences scoring library"
+authors = ["Simone Primarosa <simonepri@outlook.com>"]
+license = "MIT"
+homepage = "https://github.com/simonepri/lm-scorer#readme"
+repository = "https://github.com/simonepri/lm-scorer"
+readme = "readme.md"
+keywords = ["language", "model", "lm", "probability", "score"]
+
+packages = [
+  {include = "lm_scorer", from = "."},
+  {include = "tests", from = ".", format = "sdist"},
+]
+
+[tool.poetry.scripts]
+lm-scorer = 'lm_scorer.bin.cli:run'
+
+[tool.taskipy.tasks]
+lint = "python -m pylint lm_scorer tests -v --output-format colorized --disable duplicate-code,bad-continuation --generated-members=torch.*"
+types = "python -m mypy lm_scorer tests --ignore-missing-imports"
+format = "python -m black lm_scorer tests"
+test = "python -m pytest --cov=lm_scorer tests --verbose"
+
+[tool.poetry.dependencies]
+python = ">=3.6,<3.8"
+pip = ">=20.0.0"
+
+[tool.poetry.dev-dependencies]
+taskipy = "^1.2.1"
+black = "~19.10b0"
+pylint = "^2.5.2"
+mypy = "~0.770"
+pytest = "^5.4.2"
+pytest-cov = "^2.8.1"
+pytest-mock = "^3.0.0"
+pytest-sugar = "~0.9.3"
+pytest-describe = "^1.0.0"
+
+[build-system]
+requires = ["poetry >=1,<2"]
+build-backend = "poetry.masonry.api"
