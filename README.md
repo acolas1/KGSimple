@@ -36,6 +36,31 @@ Download the `requirements.txt` file. Note that this file was auto-generated fro
 To use NLTK's punkt, run the following command:
 ```python -c "import nltk; nltk.download('punkt')"```
 
+## Data and Models
+
+### Data Files
+
+1. **Download Data Files:**
+   - [Click here to download the required data files](https://drive.google.com/file/d/1Xh7kXfVfTm9xSj_bfsjNjeYk_8DBLbYG/view?usp=sharing).
+   - Unzip the downloaded file.
+   - Place the extracted data files in the root directory of your project.
+
+### Pre-trained Models
+
+2. **Download Pre-trained Model Files:**
+   - [Access the pre-trained model files here](https://drive.google.com/file/d/1mWmBmjWyxAiLddao-afLTrHYrc1xx6Am/view?usp=sharing).
+   - Unzip the downloaded file.
+   - Place the extracted pre-trained model files in the root directory of your project.
+
+### Tokenizers (BART-Base and T5)
+
+3. **Download Tokenizers:**
+   - For the BART-Base tokenizer, visit [this link](https://huggingface.co/facebook/bart-base).
+   - For the T5 tokenizer, visit [this link](https://huggingface.co/t5-base).
+   - Download the tokenizer files from the respective links.
+   - Create a folder named `tokenizer` in the root directory of your project.
+   - Place the downloaded tokenizer files in the `tokenizer` folder.
+
 ## Bash Scripts
 Several bash scripts are provided corresponding to different configurations:
 
