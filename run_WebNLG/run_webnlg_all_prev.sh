@@ -1,14 +1,14 @@
-python -u ../../main.py \
+python -u ../main.py \
         --do_train \
-        --output_dir ../../out/ModelB_new_learned_type_enc \
-        --model_path ../../model/GAP/webnlg/webnlg_type_e_r \
-        --tokenizer_path ../../../pretrained_LM/bart-base \
-        --data_path ../../data/webnlg \
+        --output_dir ../out/ModelB_new_learned_type_enc \
+        --model_path ../model/GAP_type_e_r \
+        --tokenizer_path ../tokenizer/pretrained_LM/bart-base \
+        --data_path ../data/webnlg \
         --format_file test-large.format \
-        --prob_dict_path ../../data/wiki/enwiki/enwiki_terms_with_punc.csv \
-        --idf_path ../../data/wiki/enwiki/enwiki_terms.csv \
-        --dict_path ../../data/SimplePPDB/SimplePPDB \
-        --rule_path ../../data/rules/format-wikidata2019-hierarchy-map.txt \
+        --prob_dict_path ../data/wiki/enwiki/enwiki_terms_with_punc.csv \
+        --idf_path ../data/wiki/enwiki/enwiki_terms.csv \
+        --dict_path ../data/SimplePPDB/SimplePPDB \
+        --rule_path ../data/rules/format-wikidata2019-hierarchy-map.txt \
         --dataset eventNarrative \
         --max_input_length 256 \
         --max_output_length 512 \
@@ -32,5 +32,5 @@ python -u ../../main.py \
         --hallucination_del_scorer \
         --num_operations 50 \
         --predict_batch_size 64 \
-        --golden_file ../../data/webnlg/golden_generated.txt \
-        --output_csv ../../out/output/normalized_scores/webnlg_out_condition_greater_than_prev.csv
+        --golden_file ../data/webnlg/golden_generated.txt \
+        --output_csv ../out/output/WebNLG/greater_than_prev/WebNLG_gap_greater_prev.csv

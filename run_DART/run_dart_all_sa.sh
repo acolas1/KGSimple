@@ -1,15 +1,9 @@
-#change model_path path to T5
-#change output dir
-#change tokenizer_path
-#change golden file name
-#change output csv name
-
 python -u ../main.py \
         --do_train \
         --model_name t5 \
         --output_dir ../out/T5 \
-        --model_path ../model/T5/DART/t5_DART_upper \
-        --tokenizer_path ../../pretrained_LM/t5-base \
+        --model_path ../model/t5_DART_upper \
+        --tokenizer_path ../tokenizer/pretrained_LM/t5-base \
         --prob_dict_path ../data/wiki/enwiki/enwiki_terms_with_punc.csv \
         --idf_path ../data/wiki/enwiki/enwiki_terms.csv \
         --dict_path ../data/SimplePPDB/SimplePPDB \
@@ -40,4 +34,4 @@ python -u ../main.py \
         --num_operations 50 \
         --predict_batch_size 64 \
         --golden_file ../data/DART/golden_generated_t5.txt \
-        --output_csv ../out/output/DART_t5_greater_sa.csv
+        --output_csv ../out/output/DART/greater_than_prev/DART_t5_greater_sa.csv

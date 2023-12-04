@@ -10,6 +10,7 @@ Knowledge Graph (KG)-to-Text Generation has seen recent improvements in generati
 ![Model Overview](paper_resources/Figures/overview.png#pic_center)
 
 ## Citation
+If you find our work helpful, please consider citing it in your research or project. You can use the following BibTeX entry:
 ```bibtex
 @misc{colas2023knowledge,
       title={Can Knowledge Graphs Simplify Text?}, 
@@ -20,3 +21,84 @@ Knowledge Graph (KG)-to-Text Generation has seen recent improvements in generati
       primaryClass={cs.CL}
 }
 ```
+
+## Environment Setup
+Ensure you have the following dependencies loaded in your environment:
+
+```bash
+module load cuda/11.1.0
+module load pytorch/1.9.0
+```
+### Requirements
+Download the `requirements.txt` file. Note that this file was auto-generated from our Conda environment.
+
+### NLTK Setup
+To use NLTK's punkt, run the following command:
+```python -c "import nltk; nltk.download('punkt')"```
+
+## Bash Scripts
+Several bash scripts are provided corresponding to different configurations:
+
+### DART Dataset 
+```bash
+cd run_DART
+```
+
+Simulated Annealing:
+```bash
+bash run_dart_all_sa.sh
+```
+
+Greater Than Previous Condition:
+```bash
+bash run_dart_all_t5_prev.sh
+```
+
+Greater Than Zero Condition:
+```bash
+bash run_dart_all_zero.sh
+```
+
+### WebNLG Dataset 
+```bash
+cd run_WebNLG
+```
+
+Simulated Annealing:
+```bash
+bash run_webnlg_all_sa.sh
+```
+
+Greater Than Previous Condition:
+```bash
+bash run_webnlg_all_prev.sh
+```
+
+Greater Than Zero Condition:
+```bash
+bash run_webnlg_all_zero.sh
+```
+
+## Next Evaluation Steps
+
+To run the next evaluation steps without folder issues, use the default parameters defined in the bash scripts for the `output_csv` parameter.
+
+### File Storage
+
+The output files should be saved to out/output/
+
+### Explanation of Flags:
+
+- `--eval_mod`: The mode to obtain the graphs. Choices are `greater_than_prev`, `greater_than_zero-last`, `greater_than_zero-best`. For simulated annealing, use `greater_than_prev` on the simulated annealing graph results from the previous scripts.
+
+- `--eval_batch_size`: This flag controls the batch size used during evaluation. The batch size is a hyperparameter that determines the number of samples processed in one iteration. It can affect memory usage and computation time.
+
+- `--output_dir`: The directory containing the output file from the KGSimple previous run scripts.
+
+- `--dataset_dir`: The directory containing the specific output dataset files, e.g., `DART` (inside `output`) for the DART dataset.
+
+- `--graphs_file`: The CSV file containing the simplified results from the previous run scripts.
+
+### Need Help or Encountering Issues?
+
+If you have any questions, encounter issues, or need assistance, please feel free to let us know. We appreciate your interest and feedback and are here to help!

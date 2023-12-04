@@ -91,7 +91,7 @@ def run(args, logger):
     
     ## golden sentences will be the translation of the original graph
     if os.path.exists(args.golden_file):
-        print("exists")
+        print("Golden file exists")
         golden_sentences = []
         with open(args.golden_file) as f:
             while True:
@@ -100,7 +100,7 @@ def run(args, logger):
                 if not out_text: break
                 golden_sentences.append(out_text)
     else:
-        print("does not exist")
+        print("Golden file does not exist")
         ## golden sentences will be the translation of the original graph
         golden_sentences = graph2sen(logger, args, graphs, model, tokenizer)
         outfile = open(args.golden_file,'a')
@@ -113,11 +113,9 @@ def run(args, logger):
     idf_path = args.idf_path
     idf_df = pd.read_csv(idf_path, ',', encoding='utf-8')
     idf_dict = pd.Series(idf_df.idf.values, index=idf_df.token).to_dict()
-
     ## load complex-simple dictionary
     dict_path = args.dict_path
     complex_dict = load_complex_dict(dict_path, '\t')
-    
     ## load rules
     rule_path = args.rule_path
     rule_list = []
@@ -132,7 +130,6 @@ def run(args, logger):
             tail = tail.split('|')
             ## add to rule list
             rule_list.append((head1, head2, tail, conf))
-
     ## apply operations
     # sample_ids = random.sample(range(len(graphs)), 50)
     print('---------------Apply simplify operations on graphs------------------')
@@ -214,6 +211,7 @@ def run(args, logger):
             print('************ COMPLETED ONE SAMPLED OPERATION FOR BATCH ************')
         print('************ BATCH FULLY COMPLETE ************')
     print('******************************            ******************************            FINISHED            ******************************            ******************************')
+    os.makedirs(os.path.dirname(args.output_csv), exist_ok=True)
     with open(args.output_csv, "w") as f:
         wr = csv.writer(f)
         wr.writerows(graph_states)
