@@ -1,5 +1,5 @@
 # KGSimple
-Official repository for [Can Knowledge Graphs Simplify Text?](https://dl.acm.org/doi/10.1145/3583780.3615514) accepted to [CIKM 2023].
+Official repository for [Can Knowledge Graphs Simplify Text?](https://dl.acm.org/doi/10.1145/3583780.3615514) accepted to [CIKM 2023](https://uobevents.eventsair.com/cikm2023/).
 
 Anthony Colas, Haodi Ma, Xuanli He, Yang Bai, and Daisy Zhe Wang. 2023. Can Knowledge Graphs Simplify Text? In Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM '23). Association for Computing Machinery, New York, NY, USA, 379–389. https://doi.org/10.1145/3583780.3615514
 
